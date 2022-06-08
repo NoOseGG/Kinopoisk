@@ -1,6 +1,6 @@
 package com.example.kinopoisk.model
 
-data class FilmDTO(
+data class FilmDetails(
     val kinopoiskId: Int,
     val imdbId: String,
     val nameRu: String,
@@ -13,5 +13,4 @@ data class FilmDTO(
     val ratingKinopoisk: Double,
     val ratingImdb: Double,
     val ratingFilmCritics: Double
-
 )
