@@ -15,17 +15,7 @@ fun FilmDTO.toFilm(): Film {
     return Film(
         filmId = filmId,
         nameRu = nameRu,
-        posterUrl = posterUrl
+        posterUrl = posterUrlPreview
     )
 }
 
-fun FilmDTO.toFilmDetails(): FilmDetails {
-    return FilmDetails(
-        filmId = filmId,
-        nameRu = nameRu,
-        nameEn = nameEn,
-        year = year,
-        filmLength = filmLength,
-        posterUrl = posterUrl,
-    )
-}
