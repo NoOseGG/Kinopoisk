@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.kinopoisk.databinding.FragmentListBinding
 import com.example.kinopoisk.paging.FilmDataAdapter
@@ -21,7 +22,13 @@ class ListFragment : Fragment() {
     private val binding get() = requireNotNull(_binding)
     private val viewModel: ListViewModel by viewModel()
     private val adapter by lazy {
-        FilmDataAdapter(requireContext())
+        FilmDataAdapter(requireContext()) { film->
+            val action = ListFragmentDirections.actionListFragmentToFilmDetailsFragment(
+                filmId = film.filmId,
+                filmName = film.nameRu
+            )
+            findNavController().navigate(action)
+        }
     }
 
 
