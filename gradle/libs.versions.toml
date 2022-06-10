@@ -2,6 +2,7 @@
 
 androidx-core = "1.7.0"
 androidx-appcompat = "1.4.1"
+androidx-paging3 = "3.1.1"
 material = "1.6.0"
 constraintlayout = "2.1.4"
 junit = "4.13.2"
@@ -21,6 +22,9 @@ androidx-swipe-refresh = "1.1.0"
 
 androidx-core = { module = "androidx.core:core-ktx", version.ref = "androidx-core" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
+
+androidx-paging3 = { module = "androidx.paging:paging-runtime", version.ref = "androidx-paging3"}
+
 material = { module = "com.google.android.material:material", version.ref = "material" }
 constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
 junit = { module = "junit:junit", version.ref = "junit" }

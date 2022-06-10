@@ -3,27 +3,28 @@ package com.example.kinopoisk.mapper
 import com.example.kinopoisk.model.Film
 import com.example.kinopoisk.model.FilmDTO
 import com.example.kinopoisk.model.FilmDetails
+import com.example.kinopoisk.model.FilmListDTO
+
+fun FilmListDTO.toListFilm(): List<Film> {
+    return films.map {
+        it.toFilm()
+    }
+}
 
 fun FilmDTO.toFilm(): Film {
     return Film(
-        kinopoiskId = kinopoiskId,
+        filmId = filmId,
         posterUrl = posterUrl
     )
 }
 
 fun FilmDTO.toFilmDetails(): FilmDetails {
     return FilmDetails(
-        kinopoiskId = kinopoiskId,
-        imdbId = imdbId,
+        filmId = filmId,
         nameRu = nameRu,
         nameEn = nameEn,
-        nameOriginal = nameOriginal,
+        year = year,
+        filmLength = filmLength,
         posterUrl = posterUrl,
-        posterUrlPreview = posterUrlPreview,
-        reviewsCount = reviewsCount,
-        ratingGoodReview = ratingGoodReview,
-        ratingKinopoisk = ratingKinopoisk,
-        ratingImdb = ratingImdb,
-        ratingFilmCritics = ratingFilmCritics
     )
 }

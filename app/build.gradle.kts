@@ -55,4 +55,8 @@ dependencies {
 
     implementation(libs.retrofit)
     implementation(libs.retrofit.convertergson)
+
+    implementation(libs.androidx.paging3)
+
+    implementation(libs.coil)
 }
