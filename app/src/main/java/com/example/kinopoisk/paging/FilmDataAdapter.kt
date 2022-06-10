@@ -11,7 +11,8 @@ import com.example.kinopoisk.databinding.FilmItemBinding
 import com.example.kinopoisk.model.Film
 
 class FilmDataAdapter(
-    context: Context
+    context: Context,
+    private val onClick: (Film) -> Unit
 ) : PagingDataAdapter<Film, FilmViewHolder>(DIFF_UTIL) {
     override fun onBindViewHolder(holder: FilmViewHolder, position: Int) {
         val item = getItem(position)
@@ -22,7 +23,8 @@ class FilmDataAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmViewHolder {
         return FilmViewHolder(
-            binding = FilmItemBinding.inflate(layoutInfalter)
+            binding = FilmItemBinding.inflate(layoutInfalter),
+            onClick = onClick
         )
     }
 
@@ -42,10 +44,14 @@ class FilmDataAdapter(
 }
 
 class FilmViewHolder(
-    private val binding: FilmItemBinding
+    private val binding: FilmItemBinding,
+    private val onClick: (Film) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: Film) {
         binding.filmPoster.load(item.posterUrl)
+        binding.root.setOnClickListener {
+            onClick(item)
+        }
     }
 }

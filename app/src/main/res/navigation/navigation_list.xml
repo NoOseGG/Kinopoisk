@@ -9,5 +9,21 @@
         android:id="@+id/listFragment"
         android:name="com.example.kinopoisk.screen.ListFragment"
         android:label="ListFragment"
-        tools:layout="@layout/fragment_list"/>
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_filmDetailsFragment"
+            app:destination="@id/filmDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/filmDetailsFragment"
+        android:name="com.example.kinopoisk.screen.FilmDetailsFragment"
+        android:label="{filmName}"
+        tools:layout="@layout/fragment_film_details">
+        <argument
+            android:name="filmId"
+            app:argType="integer" />
+        <argument
+            android:name="filmName"
+            app:argType="string" />
+    </fragment>
 </navigation>
