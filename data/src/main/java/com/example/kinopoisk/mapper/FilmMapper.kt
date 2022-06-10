@@ -14,6 +14,7 @@ fun FilmListDTO.toListFilm(): List<Film> {
 fun FilmDTO.toFilm(): Film {
     return Film(
         filmId = filmId,
+        nameRu = nameRu,
         posterUrl = posterUrl
     )
 }

@@ -18,11 +18,11 @@ class FilmDataAdapter(
         item?.let { holder.bind(item) }
     }
 
-    private val layoutInflater = LayoutInflater.from(context)
+    private val layoutInfalter = LayoutInflater.from(context)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmViewHolder {
         return FilmViewHolder(
-            binding = FilmItemBinding.inflate(layoutInflater)
+            binding = FilmItemBinding.inflate(layoutInfalter)
         )
     }
 
@@ -46,6 +46,6 @@ class FilmViewHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: Film) {
-        binding.filmPoster.load(item.posterUrlPreview)
+        binding.filmPoster.load(item.posterUrl)
     }
 }
