@@ -9,7 +9,7 @@ import retrofit2.http.Query
 
 interface KinopoiskApi {
 
-    @Headers("X-API-KEY: 7ca4fe8e-239b-4458-a3c7-eb08c32123cb")
+    @Headers("X-API-KEY: 1c389672-6a5d-4cd0-889f-95555177e69a")
     @GET("/api/v2.2/films/top")
     suspend fun getTop250Films(
         @Query("page") page: Int
