@@ -1,9 +1,6 @@
 package com.example.kinopoisk.mapper
 
-import com.example.kinopoisk.model.Film
-import com.example.kinopoisk.model.FilmDTO
-import com.example.kinopoisk.model.FilmDetails
-import com.example.kinopoisk.model.FilmListDTO
+import com.example.kinopoisk.model.*
 
 fun FilmListDTO.toListFilm(): List<Film> {
     return films.map {
@@ -19,3 +16,18 @@ fun FilmDTO.toFilm(): Film {
     )
 }
 
+fun FilmDetailsDTO.toFilmDetails(): FilmDetails {
+    return FilmDetails(
+        kinopoiskId = kinopoiskId,
+        nameRu = nameRu,
+        posterUrl = posterUrl,
+        coverUrl = coverUrl,
+        ratingKinopoisk = ratingKinopoisk,
+        ratingImdb = ratingImdb,
+        slogan = slogan ?: "",
+        description = description,
+        type = type,
+        countries = countries,
+        genres = genres
+    )
+}

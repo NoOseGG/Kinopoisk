@@ -54,7 +54,6 @@ class ListFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch{
             viewModel.films.collectLatest {
-                println("film: $it.")
                 adapter.submitData(it)
             }
         }

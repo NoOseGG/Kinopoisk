@@ -1,6 +1,6 @@
 package com.example.kinopoisk.model
 
-data class FilmDetails(
+data class FilmDetailsDTO(
     val kinopoiskId: Int,
     val nameRu: String,
     val posterUrl: String,
@@ -12,12 +12,4 @@ data class FilmDetails(
     val type: String,
     val countries: List<Country>,
     val genres: List<Genre>
-)
-
-data class Country(
-    val country: String
-)
-
-data class Genre(
-    val genre: String
 )

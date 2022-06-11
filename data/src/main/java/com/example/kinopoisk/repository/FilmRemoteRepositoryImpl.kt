@@ -1,7 +1,9 @@
 package com.example.kinopoisk.repository
 
+import com.example.kinopoisk.mapper.toFilmDetails
 import com.example.kinopoisk.mapper.toListFilm
 import com.example.kinopoisk.model.Film
+import com.example.kinopoisk.model.FilmDetails
 import com.example.kinopoisk.retrofit.KinopoiskApi
 
 class FilmRemoteRepositoryImpl(
@@ -9,9 +11,11 @@ class FilmRemoteRepositoryImpl(
 ) : FilmRemoteRepository {
 
     override suspend fun getFilms(page: Int): List<Film> {
-        val films = api.getTop250Films(page).toListFilm()
-        println("films: $films")
-        return films
+        return api.getTop250Films(page).toListFilm()
+    }
+
+    override suspend fun getFilm(id: Int): FilmDetails {
+        return api.getFilm(id).toFilmDetails()
     }
 
     override suspend fun getPageCount(): Int {

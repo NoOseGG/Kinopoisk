@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/FinalProjectAndorid/Kinopoisk/app/src/main/res/layout/activity_main.xml" value="0.11302083333333333" />
+        <entry key="..\:/FinalProjectAndorid/Kinopoisk/app/src/main/res/drawable/rating_shape.xml" value="0.152" />
+        <entry key="..\:/FinalProjectAndorid/Kinopoisk/app/src/main/res/drawable/rounded_text_view.xml" value="0.1705" />
+        <entry key="..\:/FinalProjectAndorid/Kinopoisk/app/src/main/res/layout/activity_main.xml" value="0.16799999999999998" />
         <entry key="..\:/FinalProjectAndorid/Kinopoisk/app/src/main/res/layout/film_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/FinalProjectAndorid/Kinopoisk/app/src/main/res/layout/fragment_film_details.xml" value="0.264" />
+        <entry key="..\:/FinalProjectAndorid/Kinopoisk/app/src/main/res/layout/fragment_google_maps.xml" value="0.22826086956521738" />
         <entry key="..\:/FinalProjectAndorid/Kinopoisk/app/src/main/res/layout/fragment_list.xml" value="0.11302083333333333" />
         <entry key="..\:/FinalProjectAndorid/Kinopoisk/app/src/main/res/layout/fragment_setting.xml" value="0.11302083333333333" />
         <entry key="..\:/FinalProjectAndorid/Kinopoisk/app/src/main/res/menu/bottom_nav_menu.xml" value="0.11302083333333333" />
