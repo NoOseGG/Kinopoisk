@@ -15,7 +15,9 @@ lifecycle = "2.4.1"
 coil = "2.0.0-rc03"
 koin = "3.2.0"
 androidx-swipe-refresh = "1.1.0"
-
+googlemaps-play-services-map = "17.0.1"
+googlemaps-play-services-location = "19.0.1"
+fragment = "1.4.1"
 
 
 [libraries]
@@ -46,5 +48,11 @@ koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin"}
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin"}
 
 androidx-swipe-refresh = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "androidx-swipe-refresh"}
+googlemaps-play-services-map = { module = "com.google.android.gms:play-services-maps", version.ref = "googlemaps-play-services-map"}
+googlemaps-play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "googlemaps-play-services-location"}
+
+fragment = { module = "androidx.fragment:fragment", version.ref = "fragment"}
+
+
 
 

@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs.kotlin")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -60,4 +61,7 @@ dependencies {
     implementation(libs.androidx.paging3)
 
     implementation(libs.coil)
+    implementation(libs.fragment)
+    implementation(libs.googlemaps.play.services.map)
+    implementation(libs.googlemaps.play.services.location)
 }
