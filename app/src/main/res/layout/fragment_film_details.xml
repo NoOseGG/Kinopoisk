@@ -16,6 +16,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:visibility="gone"/>
 
+    <ImageView
+        android:id="@+id/img_favorites"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_favourites"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <TextView
         android:id="@+id/kinopoisk_rating"
         android:layout_width="100dp"
