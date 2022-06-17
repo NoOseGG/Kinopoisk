@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -48,6 +49,8 @@ dependencies {
     implementation(libs.koin.core)
     implementation(libs.retrofit)
     implementation(libs.retrofit.convertergson)
+    implementation(libs.androidx.room.runtime)
+    /*implementation(libs.androidx.room.compiler)*/
 
 
 }

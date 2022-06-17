@@ -18,7 +18,8 @@ class MyApp : Application() {
                 useCaseModule,
                 viewModelModule,
                 repositoryModule,
-                sharedPrefsModule
+                sharedPrefsModule,
+                databaseModule
             )
         }
     }

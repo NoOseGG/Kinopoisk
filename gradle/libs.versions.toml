@@ -18,7 +18,7 @@ androidx-swipe-refresh = "1.1.0"
 googlemaps-play-services-map = "17.0.1"
 googlemaps-play-services-location = "19.0.1"
 fragment = "1.4.1"
-
+androidx-room = "2.4.2"
 
 [libraries]
 
@@ -52,6 +52,9 @@ googlemaps-play-services-map = { module = "com.google.android.gms:play-services-
 googlemaps-play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "googlemaps-play-services-location"}
 
 fragment = { module = "androidx.fragment:fragment", version.ref = "fragment"}
+
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "androidx-room"}
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "androidx-room"}
 
 
 
