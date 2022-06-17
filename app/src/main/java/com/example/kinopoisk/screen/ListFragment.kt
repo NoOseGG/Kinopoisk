@@ -1,5 +1,6 @@
 package com.example.kinopoisk.screen
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +23,7 @@ class ListFragment : Fragment() {
     private val binding get() = requireNotNull(_binding)
     private val viewModel: ListViewModel by viewModel()
     private val adapter by lazy {
-        FilmDataAdapter(requireContext()) { film->
+        FilmDataAdapter(requireContext()) { film ->
             val action = ListFragmentDirections.actionListFragmentToFilmDetailsFragment(
                 filmId = film.filmId,
                 filmName = film.nameRu
@@ -30,8 +31,6 @@ class ListFragment : Fragment() {
             findNavController().navigate(action)
         }
     }
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,20 +46,47 @@ class ListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding) {
-            recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-            recyclerView.setHasFixedSize(true)
-            recyclerView.adapter = adapter
-        }
+            if (requireContext().resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                recyclerView.layoutManager = GridLayoutManager(
+                    requireContext(),
+                    2,
+                )
+                setupRecyclerView()
+            }
 
-        viewLifecycleOwner.lifecycleScope.launch{
+            if(resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                recyclerView.layoutManager = GridLayoutManager(
+                    requireContext(),
+                    1,
+                    GridLayoutManager.HORIZONTAL,
+                    false
+                )
+                setupRecyclerView()
+            }
+        }
+        println("11111111111111111111111111111111111")
+        viewLifecycleOwner.lifecycleScope.launch {
             viewModel.films.collectLatest {
                 adapter.submitData(it)
             }
         }
+
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
+    private fun setupRecyclerView() {
+        with(binding) {
+            recyclerView.setHasFixedSize(true)
+            recyclerView.adapter = adapter
+        }
+    }
+
 }
+
+
+

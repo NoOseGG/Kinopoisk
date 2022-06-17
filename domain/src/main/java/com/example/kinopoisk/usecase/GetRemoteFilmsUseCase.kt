@@ -8,6 +8,7 @@ class GetRemoteFilmsUseCase(
 ) {
 
     suspend operator fun invoke(page: Int): List<Film> {
+        println("2222222222222222222222222222222")
         return repository.getFilms(page)
     }
 }

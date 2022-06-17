@@ -13,7 +13,7 @@ class FilmDetailsViewModel(
 ) : ViewModel() {
 
     val filmDetailsFlow = flow {
-        val film = getRemoteFilmUseCase.invoke(filmId)
+        val film = getRemoteFilmUseCase(filmId)
         emit(film)
     }.shareIn(
         viewModelScope,

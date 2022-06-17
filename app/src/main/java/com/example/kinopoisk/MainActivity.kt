@@ -3,10 +3,14 @@ package com.example.kinopoisk
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.NavHost
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.kinopoisk.databinding.ActivityMainBinding
+import com.example.kinopoisk.manager.NightMode
+import com.example.kinopoisk.manager.SharedPrefsManager
+import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
     private val navController by lazy {
@@ -15,10 +19,18 @@ class MainActivity : AppCompatActivity() {
     }
     private var _binding: ActivityMainBinding? = null
     private val binding get() = requireNotNull(_binding)
+    private val sharedPref by inject<SharedPrefsManager>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
+        AppCompatDelegate.setDefaultNightMode(
+            when(sharedPref.nightMode) {
+                NightMode.DARK -> AppCompatDelegate.MODE_NIGHT_YES
+                NightMode.LIGHT -> AppCompatDelegate.MODE_NIGHT_NO
+                NightMode.SYSTEM -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+            }
+        )
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)

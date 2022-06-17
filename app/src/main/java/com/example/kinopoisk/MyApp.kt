@@ -1,10 +1,7 @@
 package com.example.kinopoisk
 
 import android.app.Application
-import com.example.kinopoisk.koin.networkModule
-import com.example.kinopoisk.koin.repositoryModule
-import com.example.kinopoisk.koin.useCaseModule
-import com.example.kinopoisk.koin.viewModelModule
+import com.example.kinopoisk.koin.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
@@ -20,7 +17,8 @@ class MyApp : Application() {
                 networkModule,
                 useCaseModule,
                 viewModelModule,
-                repositoryModule
+                repositoryModule,
+                sharedPrefsModule
             )
         }
     }
