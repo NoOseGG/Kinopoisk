@@ -6,6 +6,8 @@ interface FilmLocaleRepository {
 
     suspend fun getFilms(): Result<List<FilmDetails>>
 
+    suspend fun getFilm(id: Int): Result<FilmDetails>
+
     suspend fun insertFilm(filmDetails: FilmDetails)
 
     suspend fun deleteFilm(filmDetails: FilmDetails)

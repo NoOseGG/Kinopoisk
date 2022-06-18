@@ -50,7 +50,7 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.convertergson)
     implementation(libs.androidx.room.runtime)
-    /*implementation(libs.androidx.room.compiler)*/
-
+    kapt(libs.androidx.room.compiler)
+    implementation("androidx.room:room-ktx:2.4.2")
 
 }

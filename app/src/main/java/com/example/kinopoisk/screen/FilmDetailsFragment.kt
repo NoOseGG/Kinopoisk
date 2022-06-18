@@ -9,12 +9,17 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
+import com.example.kinopoisk.R
 import com.example.kinopoisk.databinding.FragmentFilmDetailsBinding
+import com.example.kinopoisk.model.FilmDetails
 import com.example.kinopoisk.viewmodel.FilmDetailsViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
+import kotlin.properties.Delegates
 
 
 class FilmDetailsFragment : Fragment() {
@@ -25,6 +30,7 @@ class FilmDetailsFragment : Fragment() {
     private val viewModel: FilmDetailsViewModel by viewModel {
         parametersOf(args.filmId)
     }
+    private var filmDetails: FilmDetails by Delegates.notNull()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,25 +47,26 @@ class FilmDetailsFragment : Fragment() {
 
         viewModel.filmDetailsFlow.onEach { film ->
             with(binding) {
+                filmDetails = film
                 imageLogo.load(film.coverUrl)
                 filmName.text = film.nameRu
 
                 var genre = "Жанр: "
-                film.genres.forEach{
+                /*film.genres.forEach {
                     genre += "${it.genre}, "
-                }
+                }*/
                 binding.listGenres.text = genre
 
                 imdbRating.text = film.ratingImdb.toString()
                 kinopoiskRating.text = film.ratingKinopoisk.toString()
 
-                country.text = film.countries.first().country
+                /*country.text = film.countries.first().country*/
                 description.text = film.description
 
-                if(film.favorites) {
-
+                if (film.favorites) {
+                    imgFavorites.setImageResource(R.drawable.ic_favorites_true)
                 } else {
-
+                    imgFavorites.setImageResource(R.drawable.ic_favorites_false)
                 }
             }
 
@@ -70,6 +77,24 @@ class FilmDetailsFragment : Fragment() {
                 binding.country.text.toString()
             )
             findNavController().navigate(action)
+        }
+
+        with(binding) {
+            imgFavorites.setOnClickListener {
+                if(filmDetails.favorites) {
+                    imgFavorites.setImageResource(R.drawable.ic_favorites_false)
+                    filmDetails.favorites = false
+                    viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
+                        viewModel.deleteFilm(filmDetails)
+                    }
+                } else {
+                    imgFavorites.setImageResource(R.drawable.ic_favorites_true)
+                    filmDetails.favorites = true
+                    viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
+                        viewModel.insertFilm(filmDetails)
+                    }
+                }
+            }
         }
 
     }

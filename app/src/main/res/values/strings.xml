@@ -4,6 +4,7 @@
     <string name="night_theme">Night theme</string>
 
     <string name="list_of_films">List top 250 films</string>
+    <string name="favourites_film">Favourites films</string>
     <string name="google_map">Google Map</string>
     <string name="bottom_menu_list">List</string>
     <string name="bottom_menu_setting">Setting</string>

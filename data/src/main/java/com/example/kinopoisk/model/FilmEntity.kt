@@ -6,8 +6,9 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "film")
 data class FilmEntity(
-    @PrimaryKey(autoGenerate = true)
-    var id: Int = 0,
+    @PrimaryKey
+    @ColumnInfo(name = "kinopoisk_id")
+    var kinopoiskId: Int,
     @ColumnInfo(name = "name_ru")
     var nameRu: String,
     @ColumnInfo(name = "poster_url")
@@ -24,10 +25,7 @@ data class FilmEntity(
     var description: String,
     @ColumnInfo(name = "type")
     var type: String,
-    @ColumnInfo(name = "countries")
-    var countries: List<Country>,
-    @ColumnInfo(name = "genres")
-    var genres: List<Genre>,
+
     @ColumnInfo(name = "favorites")
-    var favoristes: Boolean
+    var favorites: Boolean
 )

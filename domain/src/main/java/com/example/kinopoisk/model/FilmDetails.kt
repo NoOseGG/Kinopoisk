@@ -1,5 +1,7 @@
 package com.example.kinopoisk.model
 
+import java.io.Serializable
+
 data class FilmDetails(
     val kinopoiskId: Int,
     val nameRu: String,
@@ -13,7 +15,7 @@ data class FilmDetails(
     val countries: List<Country>,
     val genres: List<Genre>,
     var favorites: Boolean = false
-)
+) : Serializable
 
 data class Country(
     val country: String
