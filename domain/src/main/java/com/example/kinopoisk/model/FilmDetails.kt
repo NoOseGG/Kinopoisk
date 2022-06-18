@@ -11,7 +11,8 @@ data class FilmDetails(
     val description: String,
     val type: String,
     val countries: List<Country>,
-    val genres: List<Genre>
+    val genres: List<Genre>,
+    var favorites: Boolean = false
 )
 
 data class Country(

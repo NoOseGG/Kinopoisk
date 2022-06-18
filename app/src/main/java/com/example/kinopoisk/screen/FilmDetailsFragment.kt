@@ -55,6 +55,12 @@ class FilmDetailsFragment : Fragment() {
 
                 country.text = film.countries.first().country
                 description.text = film.description
+
+                if(film.favorites) {
+
+                } else {
+
+                }
             }
 
         }.launchIn(viewLifecycleOwner.lifecycleScope)
