@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_list"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.kinopoisk.screen.ListFragment"
+        android:label="@string/list_of_films"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_filmDetailsFragment"
+            app:destination="@id/filmDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/filmDetailsFragment"
+        android:name="com.example.kinopoisk.screen.FilmDetailsFragment"
+        android:label="{filmName}"
+        tools:layout="@layout/fragment_film_details">
+        <argument
+            android:name="filmId"
+            app:argType="integer" />
+        <argument
+            android:name="filmName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_filmDetailsFragment_to_googleMapFragment"
+            app:destination="@id/googleMapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/googleMapsFragment"
+        android:name="com.example.kinopoisk.screen.GoogleMapFragment"
+        android:label="@string/google_map"
+        tools:layout="@layout/fragment_google_map">
+        <argument
+            android:name="countryName"
+            app:argType="string" />
+    </fragment>
+</navigation>
