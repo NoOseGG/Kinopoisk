@@ -11,12 +11,12 @@ val databaseModule = module {
         Room.databaseBuilder(
             get(),
             FilmDataBase::class.java,
-            "film-database"
+            "kinopoiks.db"
         )
             .build()
     }
 
-    single<FilmDao> {
-        get()
+    single {
+        get<FilmDataBase>().filmDao()
     }
 }
